@@ -1,5 +1,5 @@
 {
-  "name": "@molmdedoz/rpg-dice-roller",
+  "name": "@molmedoz/rpg-dice-roller",
   "description": "An advanced JS based dice roller that can roll various types of dice and modifiers, along with mathematical equations.",
   "author": "molmedoz <molmedozazo@gmail.com>",
   "version": "1.0.0",
@@ -23,7 +23,7 @@
   "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/molmedoz/rpg-dice-roller.git"
+    "url": "git+https://github.com/molmedoz/rpg-dice-roller.git"
   },
   "bugs": {
     "url": "https://github.com/molmedoz/rpg-dice-roller/issues"
@@ -84,5 +84,9 @@
     "test:coverage": "npm run pretest && jest --coverage",
     "test:watch": "npm run pretest && jest --watchAll",
     "prepublishOnly": "npm test && npm run build"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
   }
 }
