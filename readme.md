@@ -1,6 +1,3 @@
-<p align="center">alt="RPG Dice Roller" style="max-width: 100%;" width="200"/>
-</p>
-
 # RPG Dice Roller
 
 [![Build Status](https://github.com/molmedoz/rpg-dice-roller/actions/workflows/build.yml/badge.svg)](https://github.com/molmedoz/rpg-dice-roller/actions/workflows/build.yml)
