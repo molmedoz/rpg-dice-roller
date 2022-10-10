@@ -2,7 +2,9 @@ import { StandardDice } from './dice/index.js';
 import { DataFormatError, NotationError, RequiredArgumentError } from './exceptions/index.js';
 import { toFixed } from './utilities/math.js';
 import { engines, generator } from './utilities/NumberGenerator.js';
-import { isBase64, isJson } from './utilities/utils.js';
+import {
+  atobImpl, btoaImpl, isBase64, isJson,
+} from './utilities/utils.js';
 import Parser from './parser/Parser.js';
 import RollGroup from './RollGroup.js';
 import RollResults from './results/RollResults.js';
@@ -300,7 +302,7 @@ class DiceRoll {
     switch (format) {
       case exportFormats.BASE_64:
         // JSON encode then base64, else it exports the string representation of the roll output
-        return btoa(this.export(exportFormats.JSON));
+        return btoaImpl(this.export(exportFormats.JSON));
       case exportFormats.JSON:
         return JSON.stringify(this);
       case exportFormats.OBJECT:
@@ -428,7 +430,7 @@ class DiceRoll {
       return DiceRoll.import(JSON.parse(data));
     } else if (isBase64(data)) {
       // data is base64 encoded - decode and import
-      return DiceRoll.import(atob(data));
+      return DiceRoll.import(atobImpl(data));
     } else if (typeof data === 'object') {
       // if data is a `DiceRoll` return it, otherwise build it
       return new DiceRoll(data);

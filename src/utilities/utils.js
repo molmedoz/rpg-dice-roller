@@ -1,3 +1,19 @@
+const btoaImpl = (str) => {
+  try {
+    return btoa(str);
+  } catch (e) {
+    return Buffer.from(`${str}`).toString('base64');
+  }
+};
+
+const atobImpl = (b64Encoded) => {
+  try {
+    return atob(b64Encoded);
+  } catch (e) {
+    return Buffer.from(b64Encoded, 'base64').toString('latin1');
+  }
+};
+
 /**
  * Check if the value is a valid base64 encoded string.
  *
@@ -7,7 +23,7 @@
  */
 const isBase64 = (val) => {
   try {
-    return !!(val && (btoa(atob(val)) === val));
+    return !!(val && (btoaImpl(atobImpl(val)) === val));
   } catch (e) {
     return false;
   }
@@ -31,6 +47,8 @@ const isJson = (val) => {
 };
 
 export {
+  btoaImpl,
+  atobImpl,
   isBase64,
   isJson,
 };

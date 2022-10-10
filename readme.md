@@ -1,41 +1,49 @@
-<p align="center">
-    <img src="https://dice-roller.github.io/documentation/dice-roller-logo.png" alt="RPG Dice Roller" style="max-width: 100%;" width="200"/>
+<p align="center">alt="RPG Dice Roller" style="max-width: 100%;" width="200"/>
 </p>
 
 # RPG Dice Roller
 
-[![Build Status](https://github.com/dice-roller/rpg-dice-roller/actions/workflows/build.yml/badge.svg)](https://github.com/dice-roller/rpg-dice-roller/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/dice-roller/rpg-dice-roller/badge.svg?branch=main)](https://coveralls.io/github/dice-roller/rpg-dice-roller?branch=main)
+[![Build Status](https://github.com/molmedoz/rpg-dice-roller/actions/workflows/build.yml/badge.svg)](https://github.com/molmedoz/rpg-dice-roller/actions/workflows/build.yml)
+[![Coverage Status](https://coveralls.io/repos/github/molmedoz/rpg-dice-roller/badge.svg?branch=main)](https://coveralls.io/github/molmedoz/rpg-dice-roller?branch=main)
 ![Tyepscript friendly](https://img.shields.io/badge/typescript-supported-blue)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](licence.txt)
-[![npm downloads](https://img.shields.io/npm/dm/@dice-roller/rpg-dice-roller)](https://www.npmjs.com/package/@dice-roller/rpg-dice-roller)
+[![npm downloads](https://img.shields.io/npm/dm/@molmedoz/rpg-dice-roller)](https://www.npmjs.com/package/@dice-roller/rpg-dice-roller)
 
 A JS based dice roller that can roll various types of dice and modifiers, along with mathematical equations.
+This is a fork of [@dice-roller/rpg-dice-roller](https://dice-roller.github.io/documentation)
 
 
 ## Install
 
 ```bash
-npm install @dice-roller/rpg-dice-roller
+npm install @molmedoz/rpg-dice-roller
 ```
 
 ## Documentation
 
-Check out the documentation at https://dice-roller.github.io/documentation
+Check out the documentation from original project https://dice-roller.github.io/documentation
 
+## Special Success
 
-## Usage in the wild
+Order 9 (critical failure is now 10 and sorting is 11)
 
-### Official
+When a die rolls a high possible result, such as rolling <= 20% of skills on a d% , this is called a special success.
 
-* [Vue components](https://github.com/dice-roller/vue) - For Tailwind, Bootstrap, basic HTML, and renderless
-* [Vuepress plugin](https://github.com/dice-roller/vuepress-plugin) - Dice roller plugin used in this documentation
+However, sometimes you want a special success to be on a different value, or a range.
 
+To specify what is considered as a special success, add `ss` and a Compare Point, after the die notation:
 
-## Contributing
+```javascript
+// roll a d10 4 times, anything greater than 7 is a critical success
+4d%ss<=12
+```
 
-We're always happy for community contributions. You can find our contributing guide in the docs: https://dice-roller.github.io/documentation/contributing
+The roll result output will look something like this:
 
+```javascript
+// the rolls of 5 and 11 are critical successes
+5d%ss<=12: [13, 5ss, 11ss, 15, 68] = 62
+```
 
 ## Licence
 

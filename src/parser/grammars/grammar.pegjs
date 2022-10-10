@@ -55,6 +55,7 @@ Modifier
   / KeepModifier
   / ReRollModifier
   / CriticalSuccessModifier
+  / SpecialSuccessModifier
   / CriticalFailureModifier
   / SortingModifier
   / MaxModifier
@@ -106,6 +107,12 @@ ReRollModifier
 CriticalSuccessModifier
   = "cs" comparePoint:ComparePoint {
     return new Modifiers.CriticalSuccessModifier(comparePoint);
+  }
+
+// Special success setting
+SpecialSuccessModifier
+  = "ss" comparePoint:ComparePoint {
+    return new Modifiers.SpecialSuccessModifier(comparePoint);
   }
 
 // Critical failure setting

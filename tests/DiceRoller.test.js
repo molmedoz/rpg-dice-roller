@@ -2,6 +2,7 @@ import { DataFormatError, NotationError, RequiredArgumentError } from '../src/ex
 import DiceRoll from '../src/DiceRoll.js';
 import DiceRoller from '../src/DiceRoller.js';
 import exportFormats from '../src/utilities/ExportFormats.js';
+import { atobImpl, btoaImpl } from '../src/utilities/utils.js';
 
 describe('DiceRoller', () => {
   let roller;
@@ -278,9 +279,9 @@ describe('DiceRoller', () => {
       const exported = roller.export(exportFormats.BASE_64);
 
       // check that it's valid base64 being decoding, re-encoding, and comparing the values
-      expect(btoa(atob(exported))).toEqual(exported);
+      expect(btoaImpl(atobImpl(exported))).toEqual(exported);
       // assert that the base64 encoded string is a JSON object of the dice roll
-      expect(atob(exported)).toEqual(JSON.stringify(roller));
+      expect(atobImpl(exported)).toEqual(JSON.stringify(roller));
     });
 
     test('can export to plain object', () => {

@@ -23,19 +23,19 @@ describe('Utilities', () => {
 
   describe('isBase64', () => {
     test('returns true for base64 encoded string', () => {
-      let encodedString = btoa('foo');
+      let encodedString = diceUtils.btoaImpl('foo');
       expect(diceUtils.isBase64(encodedString)).toBe(true);
 
-      encodedString = btoa('{"foo": "bar"}');
+      encodedString = diceUtils.btoaImpl('{"foo": "bar"}');
       expect(diceUtils.isBase64(encodedString)).toBe(true);
 
-      encodedString = btoa(true);
+      encodedString = diceUtils.btoaImpl(true);
       expect(diceUtils.isBase64(encodedString)).toBe(true);
 
-      encodedString = btoa({});
+      encodedString = diceUtils.btoaImpl({});
       expect(diceUtils.isBase64(encodedString)).toBe(true);
 
-      encodedString = btoa(['foo', 'bar']);
+      encodedString = diceUtils.btoaImpl(['foo', 'bar']);
       expect(diceUtils.isBase64(encodedString)).toBe(true);
     });
 

@@ -9,6 +9,7 @@ import MinModifier from './MinModifier.js';
 import Modifier from './Modifier.js';
 import ReRollModifier from './ReRollModifier.js';
 import SortingModifier from './SortingModifier.js';
+import SpecialSuccessModifier from './SpecialSuccessModifier.js';
 import TargetModifier from './TargetModifier.js';
 
 export {
@@ -23,5 +24,6 @@ export {
   Modifier,
   ReRollModifier,
   SortingModifier,
+  SpecialSuccessModifier,
   TargetModifier,
 };
