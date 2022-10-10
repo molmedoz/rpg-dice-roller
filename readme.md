@@ -1,7 +1,7 @@
 # RPG Dice Roller
 
 [![Build Status](https://github.com/molmedoz/rpg-dice-roller/actions/workflows/build.yml/badge.svg)](https://github.com/molmedoz/rpg-dice-roller/actions/workflows/build.yml)
-[![Coverage Status](https://coveralls.io/repos/github/molmedoz/rpg-dice-roller/badge.svg?branch=main)](https://coveralls.io/github/molmedoz/rpg-dice-roller?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/molmedoz/rpg-dice-roller/badge.svg?branch=master)](https://coveralls.io/github/molmedoz/rpg-dice-roller?branch=master)
 ![Tyepscript friendly](https://img.shields.io/badge/typescript-supported-blue)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](licence.txt)
 [![npm downloads](https://img.shields.io/npm/dm/@molmedoz/rpg-dice-roller)](https://www.npmjs.com/package/@dice-roller/rpg-dice-roller)
