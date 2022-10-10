@@ -23,16 +23,12 @@
   "types": "./types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dice-roller/rpg-dice-roller.git"
+    "url": "https://github.com/molmedoz/rpg-dice-roller.git"
   },
   "bugs": {
-    "url": "https://github.com/dice-roller/rpg-dice-roller/issues"
+    "url": "https://github.com/molmedoz/rpg-dice-roller/issues"
   },
-  "homepage": "https://dice-roller.github.io/documentation",
-  "funding": [
-    "https://github.com/sponsors/dice-roller",
-    "https://github.com/sponsors/GreenImp"
-  ],
+  "homepage": "https://github.com/molmedoz/rpg-dice-roller",
   "keywords": [
     "dice",
     "roller",

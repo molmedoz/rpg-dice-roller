@@ -38,7 +38,7 @@ To specify what is considered as a special success, add `ss` and a Compare Point
 4d%ss<=12
 ```
 
-The roll result output will look something like this:
+We're always happy for community contributions. You can find our contributing guide in the docs: https://molmedoz.github.io/documentation/contributing
 
 ```javascript
 // the rolls of 5 and 11 are critical successes
