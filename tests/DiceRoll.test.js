@@ -6,6 +6,7 @@ import ResultGroup from '../src/results/ResultGroup.js';
 import RollResult from '../src/results/RollResult.js';
 import RollResults from '../src/results/RollResults.js';
 import exportFormats from '../src/utilities/ExportFormats.js';
+import { atobImpl, btoaImpl } from '../src/utilities/utils.js';
 
 describe('DiceRoll', () => {
   describe('Initialisation', () => {
@@ -724,9 +725,9 @@ describe('DiceRoll', () => {
       const exported = diceRoll.export(exportFormats.BASE_64);
 
       // check that it's valid base64 being decoding, re-encoding, and comparing the values
-      expect(btoa(atob(exported))).toEqual(exported);
+      expect(btoaImpl(atobImpl(exported))).toEqual(exported);
       // assert that the base64 encoded string is a JSON object of the dice roll
-      expect(atob(exported)).toEqual(JSON.stringify(diceRoll));
+      expect(atobImpl(exported)).toEqual(JSON.stringify(diceRoll));
     });
 
     test('can export to plain object', () => {

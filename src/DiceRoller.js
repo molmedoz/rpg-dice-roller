@@ -1,5 +1,7 @@
 import { DataFormatError, RequiredArgumentError } from './exceptions/index.js';
-import { isBase64, isJson } from './utilities/utils.js';
+import {
+  atobImpl, btoaImpl, isBase64, isJson,
+} from './utilities/utils.js';
 import DiceRoll from './DiceRoll.js';
 import exportFormats from './utilities/ExportFormats.js';
 
@@ -95,7 +97,7 @@ class DiceRoller {
     switch (format) {
       case exportFormats.BASE_64:
         // JSON encode, then base64
-        return btoa(this.export(exportFormats.JSON));
+        return btoaImpl(this.export(exportFormats.JSON));
       case exportFormats.JSON:
         return JSON.stringify(this);
       case exportFormats.OBJECT:
@@ -130,7 +132,7 @@ class DiceRoller {
       return this.import(JSON.parse(data));
     } else if (isBase64(data)) {
       // data is base64 encoded - decode an import
-      return this.import(atob(data));
+      return this.import(atobImpl(data));
     } else if (typeof data === 'object') {
       let log = data.log || null;
 

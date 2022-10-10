@@ -5,6 +5,7 @@ const flags = {
   explode: '!',
   'critical-failure': '__',
   'critical-success': '**',
+  'special-success': 'ss',
   drop: 'd',
   max: 'v',
   min: '^',
