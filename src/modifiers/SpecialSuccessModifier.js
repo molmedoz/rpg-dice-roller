@@ -41,7 +41,7 @@ class SpecialSuccessModifier extends ComparisonModifier {
    * @returns {string}
    */
   get notation() {
-    return `ss${super.notation}`;
+    return `sp${super.notation}`;
   }
 
   /**

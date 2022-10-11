@@ -2,7 +2,7 @@
   "name": "@molmedoz/rpg-dice-roller",
   "description": "An advanced JS based dice roller that can roll various types of dice and modifiers, along with mathematical equations.",
   "author": "molmedoz <molmedozazo@gmail.com>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "module",
   "main": "./lib/esm/bundle.js",

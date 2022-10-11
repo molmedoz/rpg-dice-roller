@@ -32,14 +32,14 @@ To specify what is considered as a special success, add `ss` and a Compare Point
 
 ```javascript
 // roll a d10 4 times, anything greater than 7 is a critical success
-4d%ss<=12
+4d%sp<=12
 ```
 
 We're always happy for community contributions. You can find our contributing guide in the docs: https://molmedoz.github.io/documentation/contributing
 
 ```javascript
 // the rolls of 5 and 11 are critical successes
-5d%ss<=12: [13, 5ss, 11ss, 15, 68] = 62
+5d%sp<=12: [13, 5++, 11++, 15, 68] = 62
 ```
 
 ## Licence
