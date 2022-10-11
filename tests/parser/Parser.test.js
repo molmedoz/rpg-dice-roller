@@ -10,6 +10,7 @@ import {
   MinModifier,
   ReRollModifier,
   SortingModifier,
+  SpecialSuccessModifier,
   TargetModifier,
 } from '../../src/modifiers/index.js';
 import * as parser from '../../src/parser/grammars/grammar.js';
@@ -307,6 +308,78 @@ describe('Parser', () => {
         test('throws error if no compare point', () => {
           expect(() => {
             Parser.parse('d6cs');
+          }).toThrow(parser.SyntaxError);
+        });
+      });
+
+      describe('Special success', () => {
+        test('success for `8d45sp=12`', () => {
+          const parsed = Parser.parse('8d45sp=12');
+
+          expect(parsed).toBeInstanceOf(Array);
+          expect(parsed).toHaveLength(1);
+          expect(parsed[0]).toBeInstanceOf(StandardDice);
+
+          expect(parsed[0].sides).toEqual(45);
+          expect(parsed[0].qty).toEqual(8);
+
+          expect(parsed[0].modifiers.has('special-success')).toBe(true);
+          const mod = parsed[0].modifiers.get('special-success');
+          expect(mod).toBeInstanceOf(SpecialSuccessModifier);
+          expect(mod.toJSON()).toEqual(expect.objectContaining({
+            comparePoint: expect.objectContaining({
+              operator: '=',
+              value: 12,
+            }),
+          }));
+        });
+        test('success for `36d152sp!=45`', () => {
+          const parsed = Parser.parse('36d152sp!=45');
+
+          expect(parsed).toBeInstanceOf(Array);
+          expect(parsed).toHaveLength(1);
+          expect(parsed[0]).toBeInstanceOf(StandardDice);
+
+          expect(parsed[0].sides).toEqual(152);
+          expect(parsed[0].qty).toEqual(36);
+
+          expect(parsed[0].modifiers.has('special-success')).toBe(true);
+
+          const mod = parsed[0].modifiers.get('special-success');
+          expect(mod).toBeInstanceOf(SpecialSuccessModifier);
+          expect(mod.toJSON()).toEqual(expect.objectContaining({
+            comparePoint: expect.objectContaining({
+              operator: '!=',
+              value: 45,
+            }),
+          }));
+        });
+
+        test('success for `3d50sp<>365`', () => {
+          const parsed = Parser.parse('3d50sp<>365');
+
+          expect(parsed).toBeInstanceOf(Array);
+          expect(parsed).toHaveLength(1);
+          expect(parsed[0]).toBeInstanceOf(StandardDice);
+
+          expect(parsed[0].sides).toEqual(50);
+          expect(parsed[0].qty).toEqual(3);
+
+          expect(parsed[0].modifiers.has('special-success')).toBe(true);
+
+          const mod = parsed[0].modifiers.get('special-success');
+          expect(mod).toBeInstanceOf(SpecialSuccessModifier);
+          expect(mod.toJSON()).toEqual(expect.objectContaining({
+            comparePoint: expect.objectContaining({
+              operator: '<>',
+              value: 365,
+            }),
+          }));
+        });
+
+        test('throws error if no compare point', () => {
+          expect(() => {
+            Parser.parse('d6sp');
           }).toThrow(parser.SyntaxError);
         });
       });

@@ -111,7 +111,7 @@ CriticalSuccessModifier
 
 // Special success setting
 SpecialSuccessModifier
-  = "ss" comparePoint:ComparePoint {
+  = "sp" comparePoint:ComparePoint {
     return new Modifiers.SpecialSuccessModifier(comparePoint);
   }
 
