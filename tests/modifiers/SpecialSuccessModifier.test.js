@@ -14,7 +14,7 @@ describe('SpecialSuccessModifier', () => {
         comparePoint: undefined,
         isComparePoint: expect.any(Function),
         name: 'special-success',
-        notation: 'ss',
+        notation: 'sp',
         toJSON: expect.any(Function),
         toString: expect.any(Function),
       }));
@@ -27,7 +27,7 @@ describe('SpecialSuccessModifier', () => {
       const mod = new SpecialSuccessModifier(cp);
 
       expect(mod.comparePoint).toBe(cp);
-      expect(mod.notation).toEqual('ss>8');
+      expect(mod.notation).toEqual('sp>8');
     });
 
     test('setting in constructor calls setter', () => {
@@ -114,16 +114,16 @@ describe('SpecialSuccessModifier', () => {
   describe('Notation', () => {
     test('simple notation', () => {
       let mod = new SpecialSuccessModifier(new ComparePoint('>', 57636.6457));
-      expect(mod.notation).toEqual('ss>57636.6457');
+      expect(mod.notation).toEqual('sp>57636.6457');
 
       mod = new SpecialSuccessModifier(new ComparePoint('!=', 3));
-      expect(mod.notation).toEqual('ss!=3');
+      expect(mod.notation).toEqual('sp!=3');
 
       mod = new SpecialSuccessModifier(new ComparePoint('<>', 7));
-      expect(mod.notation).toEqual('ss<>7');
+      expect(mod.notation).toEqual('sp<>7');
 
       mod = new SpecialSuccessModifier(new ComparePoint('=', 157));
-      expect(mod.notation).toEqual('ss=157');
+      expect(mod.notation).toEqual('sp=157');
     });
   });
 
@@ -141,7 +141,7 @@ describe('SpecialSuccessModifier', () => {
           value: 4,
         },
         name: 'special-success',
-        notation: 'ss=4',
+        notation: 'sp=4',
         type: 'modifier',
       });
     });
@@ -149,7 +149,7 @@ describe('SpecialSuccessModifier', () => {
     test('toString output is correct', () => {
       const mod = new SpecialSuccessModifier(new ComparePoint('=', 4));
 
-      expect(mod.toString()).toEqual('ss=4');
+      expect(mod.toString()).toEqual('sp=4');
     });
   });
 
